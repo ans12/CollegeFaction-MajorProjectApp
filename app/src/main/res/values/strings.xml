@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">College Faction</string>
+    <string name="authority">com.mp.collegefaction.collegefaction.data</string>
+</resources>
