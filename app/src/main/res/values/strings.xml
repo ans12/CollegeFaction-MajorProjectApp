@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">College Faction</string>
     <string name="authority">com.mp.collegefaction.collegefaction.data</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="placeholder">This is some randomly generated dummy text.This is some randomly generated dummy text. This is some randomly generated dummy text.This is some randomly generated dummy text.This is some randomly generated  dummy text.\nThis is some randomly generated dummy text.This is some randomly generated dummy text.
+        This is some randomly generated dummy text.This is some randomly generated dummy text.</string>
 </resources>

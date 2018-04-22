@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:orientation="vertical">
+<RelativeLayout android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/appbar_padding_top"
+    android:background="@color/colorWhiteDark"
+    tools:ignore="HardcodedText"
+    android:id="@+id/layout_write_post"
+    android:layout_height="wrap_content"
+    >
+
+    <EditText
+        android:id="@+id/et_write_post"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:maxLines="3"
+        android:hint="Write a post..."
+        android:textColorHint="@color/colorSecondaryText"
+        android:padding="20sp"
+        android:background="@drawable/et_bg_home"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:text="Add Photos"
+        android:id="@+id/tv_add_photo"
+        android:layout_marginStart="@dimen/appbar_padding_top"
+        android:layout_alignParentEnd="true"
+        android:drawablePadding="@dimen/appbar_padding_top"
+        android:gravity="bottom"
+        android:layout_gravity="end"
+        android:layout_below="@id/et_write_post"
+        android:textColor="@color/colorSecondaryText"
+        android:drawableStart="@drawable/ic_add_a_photo"
+        android:layout_marginTop="@dimen/appbar_padding_top"
+        android:fontFamily="sans-serif-monospace"/>
+
+    <TextView
+        android:id="@+id/tv_write_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        android:text="Write Post or"
+        android:drawablePadding="@dimen/appbar_padding_top"
+        android:gravity="bottom"
+        android:layout_toStartOf="@id/tv_add_photo"
+        android:layout_alignBaseline="@id/tv_add_photo"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/colorSecondaryText"
+        android:drawableStart="@drawable/ic_write_post"
+        android:layout_marginTop="@dimen/appbar_padding_top"
+        android:fontFamily="sans-serif-monospace"/>
+</RelativeLayout>
+    <View android:layout_width="match_parent"
+        android:layout_height="12sp"
+        android:background="@color/colorDividerLight"/>
+</LinearLayout>

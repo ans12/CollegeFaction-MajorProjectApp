@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mp.collegefaction.collegefaction.MessageActivity">
+    <include layout="@layout/layout_toolbar"/>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/layout_comment"
+        android:layout_below="@id/cardview"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:background="@color/colorWhite"
+        android:padding="16dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/comment_box"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:hint="write a message..."
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_weight=".8"
+            android:padding="8dp"
+            android:maxLines="3"
+            />
+        <Button android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:id="@+id/post_comment_btn"
+            android:background="@color/colorAccentLight"
+            android:text="send"
+            android:fontFamily="monospace"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/appbar_padding_top"
+            android:textColor="@color/colorWhiteDark"
+            android:layout_weight=".2"/>
+    </LinearLayout>
+    <View
+        android:layout_above="@id/layout_comment"
+        android:layout_width="match_parent"
+        android:layout_height="2sp"
+        android:background="@color/colorDivider"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_message_chat"
+        android:layout_above="@id/layout_comment"
+        android:layout_marginBottom="@dimen/appbar_padding_top"/>
+</RelativeLayout>
