@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -108,6 +107,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                     mContext.startActivity(intent);
                 }
             });
+
             holder.progressBar.setVisibility(View.INVISIBLE);
             holder.postComment.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -153,7 +153,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         return 10;
     }
 
-    public class HomeViewHolder extends RecyclerView.ViewHolder{
+    public class HomeViewHolder extends RecyclerView.ViewHolder {
 
         public ProgressBar progressBar;
         public ImageView postPic, posterProfilePic;
@@ -162,6 +162,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
         public EditText commentBox, et_write;
         public Button btnPostCommment;
         public TextView tv_add, tv_write;
+
         public HomeViewHolder(View itemView) {
             super(itemView);
             progressBar = itemView.findViewById(R.id.progress_indicator_for_img);
@@ -177,7 +178,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             btnPostCommment = itemView.findViewById(R.id.post_comment_btn);
 
             //for first item in recycler view
-            et_write= (EditText) itemView.findViewById(R.id.et_write_post);
+            et_write = (EditText) itemView.findViewById(R.id.et_write_post);
             tv_write = (TextView) itemView.findViewById(R.id.tv_write_post);
             tv_add = (TextView) itemView.findViewById(R.id.tv_add_photo);
         }

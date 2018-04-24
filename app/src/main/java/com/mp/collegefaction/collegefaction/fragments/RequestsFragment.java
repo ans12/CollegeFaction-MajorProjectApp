@@ -53,6 +53,7 @@ public class RequestsFragment extends Fragment{
             public int getSpanSize(int position) {
                 switch (adapter.getItemViewType(position)){
                     case FriendRequestAdapter.VIEW_TYPE_FRIEND_REQUEST:
+                    case FriendRequestAdapter.VIEW_TYPE_DIVIDER_REQUESTS:
                         return 2;
                     case FriendRequestAdapter.VIEW_TYPE_PEOPLE_KNOW:
                         return 1;

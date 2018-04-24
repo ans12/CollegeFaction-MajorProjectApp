@@ -19,7 +19,7 @@
             android:src="@color/colorPrimaryLight"/>
 
         <TextView
-            android:id="@+id/tv_people_know"
+            android:id="@+id/tv_name_sender"
             android:layout_marginTop="@dimen/appbar_padding_top"
             android:gravity="center_horizontal"
             android:text="Person Name"
@@ -36,7 +36,7 @@
             android:paddingEnd="@dimen/appbar_padding_top"
             android:background="@drawable/et_background"
             android:text="Message"
-            android:layout_below="@id/tv_people_know"
+            android:layout_below="@id/tv_name_sender"
             android:layout_marginTop="@dimen/appbar_padding_top"
             android:layout_marginBottom="@dimen/appbar_padding_top"
             android:layout_centerHorizontal="true"

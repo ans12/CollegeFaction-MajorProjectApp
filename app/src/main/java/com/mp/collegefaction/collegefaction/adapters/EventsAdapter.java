@@ -1,6 +1,7 @@
 package com.mp.collegefaction.collegefaction.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mp.collegefaction.collegefaction.EventDetailsActivity;
 import com.mp.collegefaction.collegefaction.R;
 
 /**
@@ -39,6 +41,22 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             }
         });
 
+        holder.event_banner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EventDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.tv_event_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EventDetailsActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
         holder.tv_interested.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,10 +81,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
     public class EventViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView event_banner;
-        public TextView tv_interested, tv_not_interested;
+        public TextView tv_interested, tv_not_interested, tv_event_name;
         public EventViewHolder(View itemView) {
             super(itemView);
             event_banner = itemView.findViewById(R.id.event_banner);
+            tv_event_name = itemView.findViewById(R.id.tv_event_name);
             tv_interested = itemView.findViewById(R.id.tv_interested);
             tv_not_interested = itemView.findViewById(R.id.tv_not_interested);
         }

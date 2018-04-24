@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.mp.collegefaction.collegefaction.MessageActivity;
 import com.mp.collegefaction.collegefaction.R;
+import com.mp.collegefaction.collegefaction.UserProfilesActivity;
 
 /**
  * Created by pranjul on 17/4/18.
@@ -26,7 +27,8 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
     private final Context mContext;
 
     public static final int VIEW_TYPE_FRIEND_REQUEST = 0;
-    public static final int VIEW_TYPE_PEOPLE_KNOW = 1;
+    public static final int VIEW_TYPE_DIVIDER_REQUESTS = 1;
+    public static final int VIEW_TYPE_PEOPLE_KNOW = 2;
 
     public FriendRequestAdapter(Context mContext) {
         this.mContext = mContext;
@@ -37,6 +39,8 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
     public int getItemViewType(int position) {
         if (position < 4)
             return VIEW_TYPE_FRIEND_REQUEST;
+        else if (position == 4 )
+            return VIEW_TYPE_DIVIDER_REQUESTS;
         else return VIEW_TYPE_PEOPLE_KNOW;
     }
 
@@ -46,6 +50,10 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
         switch (viewType){
             case VIEW_TYPE_FRIEND_REQUEST:{
                 layoutId = R.layout.list_item_request;
+                break;
+            }
+            case VIEW_TYPE_DIVIDER_REQUESTS:{
+                layoutId = R.layout.divider_requests;
                 break;
             }
             case VIEW_TYPE_PEOPLE_KNOW:{
@@ -84,7 +92,16 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                     mContext.startActivity(intent);
                 }
             });
+        } else if ( getItemViewType(position) != VIEW_TYPE_DIVIDER_REQUESTS ){
+            holder.senderName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UserProfilesActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
         }
+
     }
 
     @Override

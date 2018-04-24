@@ -36,7 +36,19 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
 
     @Override
     public void onBindViewHolder(MessageViewHolder holder, int position) {
+        if (position == 0){
+            holder.senderName.setText("All Together");
+            holder.senderProfilePhoto.setImageResource(R.drawable.ic_group);
+            holder.lastMessageTextView.setText("Messages for group chat with all active members");
+        }
         holder.senderName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, MessageActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+        holder.lastMessageTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, MessageActivity.class);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.v7.widget.CardView
@@ -40,16 +40,25 @@
                 android:text="Apr 26, 2018 10:00 AM"
                 android:layout_toEndOf="@id/profile_pic"
                 android:textColor="@color/colorSecondaryText"/>
+
             <TextView
                 android:id="@+id/post_content"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="4"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder"
                 android:paddingStart="12sp"
                 android:paddingEnd="12sp"
                 android:layout_below="@id/profile_pic"
-                android:text="@string/placeholder"/>
+                />
+            <!--app:trimMode="trimModeLine"-->
+            <!--app:trimLines="3"-->
+            <!--app:showTrimExpandedText="true"-->
+            <!--app:trimExpandedText="show more"-->
+            <!--app:trimCollapsedText="show less"-->
+            <!--app:colorClickableText="@color/colorPrimary"-->
+
 
             <ImageView
                 android:contentDescription="post image"

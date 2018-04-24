@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.mp.collegefaction.collegefaction.PostDetailActivity;
 import com.mp.collegefaction.collegefaction.R;
+import com.mp.collegefaction.collegefaction.UserProfilesActivity;
 
 import org.w3c.dom.Text;
 
@@ -55,6 +56,8 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
     @Override
     public void onBindViewHolder(final UserProfileViewHolder holder, int position) {
         if (position == 0){
+            if (context instanceof UserProfilesActivity )
+                holder.editProfile.setVisibility(View.GONE);
             holder.furtherDetails.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -102,6 +105,7 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
 
         public TextView postLike, postComment, postShare;
         public TextView furtherDetails;
+        public TextView editProfile;
 
         public UserProfileViewHolder(View itemView) {
             super(itemView);
@@ -109,7 +113,7 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
             postComment = itemView.findViewById(R.id.comment_post);
             postShare = itemView.findViewById(R.id.share_post);
             furtherDetails = itemView.findViewById(R.id.profile_see_more);
-
+            editProfile = itemView.findViewById(R.id.tv_edit_profile);
         }
     }
 }

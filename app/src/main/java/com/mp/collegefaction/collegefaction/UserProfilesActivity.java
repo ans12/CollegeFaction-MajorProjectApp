@@ -1,34 +1,30 @@
 package com.mp.collegefaction.collegefaction;
 
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
-import java.io.BufferedReader;
+import com.mp.collegefaction.collegefaction.adapters.UserProfileAdapter;
 
-public class MessageActivity extends AppCompatActivity {
+public class UserProfilesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_post_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Button btnSendMsg = (Button) findViewById(R.id.post_message);
-
-        btnSendMsg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Chatting is not available in this version yet.",Snackbar.LENGTH_SHORT).show();
-            }
-        });
-        toolbar.setTitle("Message");
+        toolbar.setTitle("User Profile");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_post_details);
+        UserProfileAdapter adapter = new UserProfileAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.smoothScrollToPosition(0);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override

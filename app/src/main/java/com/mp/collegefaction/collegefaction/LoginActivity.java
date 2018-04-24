@@ -46,18 +46,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (isNetworkEnabled()) {
-                    if (myTask != null)
-                        myTask.cancel(true);
-
-                    HashMap<String, String> values = new HashMap<>();
-                    values.put("email", username.getText().toString().trim());
-                    values.put("password", password.getText().toString().trim());
-                    myTask = new LoginTask(getApplicationContext());
-                    myTask.execute(values);
-                } else {
+//                    if (myTask != null)
+//                        myTask.cancel(true);
+//
+//                    HashMap<String, String> values = new HashMap<>();
+//                    values.put("email", username.getText().toString().trim());
+//                    values.put("password", password.getText().toString().trim());
+//                    myTask = new LoginTask(getApplicationContext());
+//                    myTask.execute(values);
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
+                } else {
+                    Snackbar.make(view, "No internet available",Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
