@@ -17,6 +17,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.mp.collegefaction.collegefaction.fragments.EventsFragment;
 import com.mp.collegefaction.collegefaction.fragments.HomeFragment;
 import com.mp.collegefaction.collegefaction.fragments.MessagesFragment;
 import com.mp.collegefaction.collegefaction.fragments.RequestsFragment;
@@ -48,13 +49,15 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_home);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_requests);
-        tabLayout.getTabAt(2).setIcon(R.drawable.ic_message);
-        tabLayout.getTabAt(3).setIcon(R.drawable.ic_person);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_event);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_message);
+        tabLayout.getTabAt(4).setIcon(R.drawable.ic_person);
 
         tabLayout.getTabAt(0).setText("").setTag("Home");
         tabLayout.getTabAt(1).setText("").setTag("Requests");
-        tabLayout.getTabAt(2).setTag("Messages").setText("");
-        tabLayout.getTabAt(3).setText("").setTag("Profile");
+        tabLayout.getTabAt(2).setTag("Events").setText("");
+        tabLayout.getTabAt(3).setText("").setTag("Messages");
+        tabLayout.getTabAt(4).setText("").setTag("Profile");
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
@@ -66,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         sectionsPagerAdapter.addFragment(HomeFragment.newInstance(),"Home");
         sectionsPagerAdapter.addFragment(RequestsFragment.newInstance(),"Requests");
+        sectionsPagerAdapter.addFragment(EventsFragment.newInstance(),"Events");
         sectionsPagerAdapter.addFragment(MessagesFragment.newInstance(),"Messages");
         sectionsPagerAdapter.addFragment(UserProfileFragment.newInstance(),"Profile");
 

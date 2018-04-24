@@ -3,6 +3,7 @@ package com.mp.collegefaction.collegefaction.fragments;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -45,8 +46,22 @@ public class RequestsFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_recycler, container, false);
 
         RecyclerView friendRequestsList = (RecyclerView) view.findViewById(R.id.recycler_view);
-        FriendRequestAdapter adapter = new FriendRequestAdapter(getContext());
-        friendRequestsList.setLayoutManager(new LinearLayoutManager(getContext()));
+        final FriendRequestAdapter adapter = new FriendRequestAdapter(getContext());
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
+        glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                switch (adapter.getItemViewType(position)){
+                    case FriendRequestAdapter.VIEW_TYPE_FRIEND_REQUEST:
+                        return 2;
+                    case FriendRequestAdapter.VIEW_TYPE_PEOPLE_KNOW:
+                        return 1;
+                    default:
+                        return -1;
+                }
+            }
+        });
+        friendRequestsList.setLayoutManager(glm);
         friendRequestsList.setAdapter(adapter);
         return view;
     }

@@ -92,6 +92,22 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             });
 
         } else {
+
+            holder.postPic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, PostDetailActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
+
+            holder.postContent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, PostDetailActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
             holder.progressBar.setVisibility(View.INVISIBLE);
             holder.postComment.setOnClickListener(new View.OnClickListener() {
                 @Override

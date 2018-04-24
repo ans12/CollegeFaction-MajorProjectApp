@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
         android:textColor="@color/colorSecondaryText"
-        android:text="No more requests"
         android:id="@+id/tv_placeholder"
         android:gravity="center_horizontal"/>
 
