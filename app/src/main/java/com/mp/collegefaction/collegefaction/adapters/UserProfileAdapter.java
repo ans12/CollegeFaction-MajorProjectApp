@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.mp.collegefaction.collegefaction.MainActivity;
 import com.mp.collegefaction.collegefaction.PostDetailActivity;
 import com.mp.collegefaction.collegefaction.R;
 import com.mp.collegefaction.collegefaction.UserProfilesActivity;
@@ -23,10 +24,16 @@ import org.w3c.dom.Text;
 public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.UserProfileViewHolder>{
 
     private final Context context;
+    private String TAG ;
     private final int VIEW_TYPE_USER_INFO = 0;
     private final int VIEW_TYPE_USER_POST = 1;
     public UserProfileAdapter(Context context) {
         this.context = context;
+        this.TAG = null;
+    }
+    public UserProfileAdapter(Context context, String TAG) {
+        this.context = context;
+        this.TAG = TAG;
     }
 
     @Override
@@ -56,7 +63,14 @@ public class UserProfileAdapter extends RecyclerView.Adapter<UserProfileAdapter.
     @Override
     public void onBindViewHolder(final UserProfileViewHolder holder, int position) {
         if (position == 0){
-            if (context instanceof UserProfilesActivity )
+
+            holder.editProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view,"Edit Profile Functionality is not available yet in app.",Snackbar.LENGTH_SHORT).show();
+                }
+            });
+            if (context instanceof UserProfilesActivity || (TAG!= null && TAG.equals("Home Fragment")))
                 holder.editProfile.setVisibility(View.GONE);
             holder.furtherDetails.setOnClickListener(new View.OnClickListener() {
                 @Override

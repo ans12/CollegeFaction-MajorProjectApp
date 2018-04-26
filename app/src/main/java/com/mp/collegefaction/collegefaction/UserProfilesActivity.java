@@ -19,9 +19,10 @@ public class UserProfilesActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("User Profile");
         setSupportActionBar(toolbar);
+        String TAG = getIntent().getStringExtra("TAG");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recycler_post_details);
-        UserProfileAdapter adapter = new UserProfileAdapter(this);
+        UserProfileAdapter adapter = new UserProfileAdapter(this, TAG);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.smoothScrollToPosition(0);
         recyclerView.setAdapter(adapter);

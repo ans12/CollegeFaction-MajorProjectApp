@@ -2,6 +2,7 @@ package com.mp.collegefaction.collegefaction.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             @Override
             public void onClick(View view) {
                 itemCount--;
+                Snackbar.make(view, "Event will be marked as not interested.", Snackbar.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }
         });
@@ -63,9 +65,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
                 if(holder.tv_interested.getText().toString().toLowerCase().equals("interested")){
                     holder.tv_interested.setText("Going");
                     holder.tv_interested.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+                    Snackbar.make(view, "Event will be marked as interested.", Snackbar.LENGTH_SHORT).show();
                     holder.tv_interested.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_done,0,0,0);
                 } else {
                     holder.tv_interested.setText("Interested");
+                    Snackbar.make(view, "Event will be unmarked as going.", Snackbar.LENGTH_SHORT).show();
                     holder.tv_interested.setTextColor(context.getResources().getColor(R.color.colorPrimaryText));
                     holder.tv_interested.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_interested,0,0,0);
                 }

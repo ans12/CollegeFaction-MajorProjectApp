@@ -21,13 +21,16 @@ public class PostDetailActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
 
+        String fromStr = getIntent().getStringExtra("FROM");
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Post Detail");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_post_details);
-        CommentsAdapter adapter = new CommentsAdapter(this);
+        CommentsAdapter adapter = new CommentsAdapter(this,fromStr);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.smoothScrollToPosition(0);

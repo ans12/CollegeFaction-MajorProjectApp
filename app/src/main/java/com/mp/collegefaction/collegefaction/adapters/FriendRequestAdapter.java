@@ -84,6 +84,21 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                     Snackbar.make(view, "Request will be accepted.", Snackbar.LENGTH_SHORT).show();
                 }
             });
+            holder.senderName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UserProfilesActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
+
+            holder.ivProfilePhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UserProfilesActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
         } else if (getItemViewType(position) == VIEW_TYPE_PEOPLE_KNOW){
             holder.messageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -92,7 +107,6 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                     mContext.startActivity(intent);
                 }
             });
-        } else if ( getItemViewType(position) != VIEW_TYPE_DIVIDER_REQUESTS ){
             holder.senderName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -100,8 +114,15 @@ public class FriendRequestAdapter extends RecyclerView.Adapter<FriendRequestAdap
                     mContext.startActivity(intent);
                 }
             });
-        }
 
+            holder.ivProfilePhoto.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UserProfilesActivity.class);
+                    mContext.startActivity(intent);
+                }
+            });
+        }
     }
 
     @Override

@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.mp.collegefaction.collegefaction.R;
 
+import static android.view.View.GONE;
+
 /**
  * Created by pranjul on 18/4/18.
  * an adapter for post details activity views.
@@ -20,14 +22,20 @@ import com.mp.collegefaction.collegefaction.R;
 public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.CommentViewHolder> {
 
     private Cursor cursor;
+    private String fromStr;
     private final Context context;
     private final int VIEW_TYPE_POST = 0;
     private final int VIEW_TYPE_COMMENT = 1;
 
     public CommentsAdapter(Context context) {
         this.context = context;
+        this.fromStr = null;
     }
 
+    public CommentsAdapter(Context context, String fromStr) {
+        this.context = context;
+        this.fromStr = fromStr;
+    }
     @Override
     public int getItemViewType(int position) {
         if ( position == 0 ) return VIEW_TYPE_POST;
@@ -56,6 +64,12 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
 
     @Override
     public void onBindViewHolder(final CommentViewHolder holder, int position) {
+
+        if ( fromStr != null && fromStr.equals("EVENTS")  && position == 0){
+            holder.organizer.setText("Organizer Name");
+            holder.imageView.setVisibility(GONE);
+            holder.postContent.setText("Post about event by author will be published here.");
+        }
         if (position == 0){
             holder.postShare.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -91,8 +105,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
 
     public class CommentViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView tv_name, tv_comment;
-        public ImageView iv_profile;
+        public TextView tv_name, tv_comment, organizer,postContent;
+        public ImageView iv_profile,imageView;
         public TextView postLike, postComment, postShare;
         public CommentViewHolder(View itemView) {
             super(itemView);
@@ -102,6 +116,10 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.Commen
             postLike = itemView.findViewById(R.id.like_post);
             postComment = itemView.findViewById(R.id.comment_post);
             postShare = itemView.findViewById(R.id.share_post);
+            organizer = itemView.findViewById(R.id.post_publisher);
+            postContent = itemView.findViewById(R.id.post_content);
+            imageView = itemView.findViewById(R.id.post_content_img);
+
         }
 
     }

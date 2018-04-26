@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.mp.collegefaction.collegefaction.PostDetailActivity;
 import com.mp.collegefaction.collegefaction.R;
+import com.mp.collegefaction.collegefaction.UserProfilesActivity;
 import com.mp.collegefaction.collegefaction.WritePostActivity;
 
 /**
@@ -91,6 +92,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
             });
 
         } else {
+
+            holder.writerName.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mContext, UserProfilesActivity.class);
+                    intent.putExtra("TAG", "Home Fragment");
+                    mContext.startActivity(intent);
+                }
+            });
 
             holder.postPic.setOnClickListener(new View.OnClickListener() {
                 @Override
